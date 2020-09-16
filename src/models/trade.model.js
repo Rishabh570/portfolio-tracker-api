@@ -7,8 +7,7 @@ const mongoose = require('mongoose');
 const tradeSchema = new mongoose.Schema(
 	{
 		price: {
-			type: Number,
-			required: true,
+			type: Number
 		},
 		shares: {
 			type: Number,
