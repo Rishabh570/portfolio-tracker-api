@@ -7,14 +7,15 @@ const mongoose = require('mongoose');
 const tradeSchema = new mongoose.Schema(
 	{
 		price: {
-			type: Number
+			type: Number,
+			required: true,
 		},
 		shares: {
 			type: Number,
 			required: true,
 		},
 		securityId: {
-			type: mongoose.Schema.Types.ObjectId, // TODO: check if this causes any error in matching
+			type: String,
 			required: true,
 		},
 		tradeType: {

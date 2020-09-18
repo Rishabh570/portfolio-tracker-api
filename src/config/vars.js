@@ -9,5 +9,5 @@ module.exports = {
 	BASE_URL: env.BASE_URL,
 	port: env.PORT,
 	mongo: env.MONGO_URI,
-	CURRENT_PRICE: env.CURRENT_PRICE
+	CURRENT_PRICE: env.CURRENT_PRICE,
 };

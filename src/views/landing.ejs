@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/css/landing.css">
+	<title>Portfolio Tracker Api 🎈</title>
+</head>
+<body>
+	<main>
+		<section class="container-fluid mt-5">
+			<h1>Welcome to Portfolio Tracker API.</h1>
+			<p class="lead">For how to use, please visit <a href="https://github.com/Rishabh570/portfolio-tracker-api/blob/master/README.md">here</a>. </p>
+
+			<div class="row my-4">
+				<div class="col">
+					<h4>Some general design considerations that I kept in mind are,</h4>
+					<ul>
+						<li>Partition the code into components (trade and security). </li>
+						<li>Separation between the app and server. The server network declaration is not mixed with the business logic of the app.</li>
+						<li>Using try-catch for catching errors and showing them to user.</li>
+						<li>Using linting to check possible code errors.</li>
+						<li>Using code-block's curly braces on the same line.</li>
+					</ul>
+				</div>
+				<div class="col">
+					<h4>Possible improvements could be,</h4>
+					<ul>
+						<li>Using single responsibility principle. Currently trade controller uses a method from security controller to re-balance the security's avg. buying price and calculate shares.</li>
+						<li>Pub-Sub which would help in achieving single responsibility mentioned above.</li>
+						<li>Using helmet for better security through response headers.</li>
+						<li>Adding cache for portfolio data.</li>
+						<li>Adding logging.</li>
+						<li>Adding compression.</li>
+						<li>Adding unit tests.</li>
+						<li>Further classification of errors into operational and programming errors and handling them accordingly.</li>
+						<li>Adding sentry support to know about the errors.</li>
+						<li>Locking dependencies.</li>
+						<li>Proper status codes for errors. Currently, API just shows error message.</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<h4>Testing code</h4>
+					<p>There are various cases to carefully test for, most of those cases include trade creation/update/removal which would cause conflicts in the data.</p>
+				</div>
+			</div>
+		</section>
+	</main>
+
+
+</body>
+</html>

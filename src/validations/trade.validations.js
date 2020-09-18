@@ -1,12 +1,22 @@
 'use-strict';
-const { body } = require('express-validator');
+const { body, param } = require('express-validator');
 
 exports.validate = (method) => {
 	switch (method) {
 		case 'addTrade': {
 			return [
-				body('price').optional().isNumeric().custom(value => {return value > 0;}),
-				body('shares').exists().isNumeric().custom(value => {return value > 0;}),
+				body('price')
+					.exists()
+					.isNumeric()
+					.custom((value) => {
+						return value > 0;
+					}),
+				body('shares')
+					.exists()
+					.isInt()
+					.custom((value) => {
+						return value > 0;
+					}),
 				body('type')
 					.exists()
 					.isString()
@@ -16,9 +26,31 @@ exports.validate = (method) => {
 				body('security').exists().trim().escape().isString(),
 			];
 		}
-		case 'deleteTrade': {
+		case 'removeTrade': {
+			return [param('tradeId').exists().isString()];
+		}
+		case 'updateTrade': {
 			return [
-				body('tradeId').exists().isString()
+				param('tradeId').exists().isString(),
+				body('price')
+					.optional()
+					.isNumeric()
+					.custom((value) => {
+						return value > 0;
+					}),
+				body('shares')
+					.optional()
+					.isNumeric()
+					.custom((value) => {
+						return value > 0;
+					}),
+				body('type')
+					.optional()
+					.isString()
+					.trim()
+					.escape()
+					.isIn(['buy', 'sell']),
+				body('security').optional().trim().escape().isString(),
 			];
 		}
 	}
